@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+    <testsuite name="test.host.ie">
+        <testcase name="001-req-03" time="20" classname="Arbour">
+        </testcase>
+
+        <testcase name="002-req-04" time="30" classname="Arbour">
+            <skipped message="not implemented yet"/>
+        </testcase>
+
+        <testcase name="003-req-13" time="50" classname="Arbour">
+            <failure message="timeout reached"/>
+            <system-out>
+                this is the
+                STDOUT
+                from the
+                system itself
+            </system-out>
+        </testcase>
+
+        <testcase name="004-req-14" time="10" classname="Arbour">
+            <error message="'rot' is not a valid parameter"/>
+            <system-out>
+                this is the
+                STDOUT
+                from the
+                system itself
+            </system-out>
+            <system-err>
+                this is the
+                STDERR
+                from the
+                system itself
+            </system-err>
+        </testcase>
+    </testsuite>
+
+    <testsuite name="test.host.ie" package="harcourt">
+
+        <testcase name="1006" time="20" classname="Harcourt">
+        </testcase>
+
+        <testcase name="1007" time="30" classname="Harcourt">
+            <skipped message="not implemented yet"/>
+        </testcase>
+
+        <testcase name="1008" time="50" classname="Harcourt">
+            <failure message="timeout reached"/>
+            <system-out>
+                this is the
+                STDOUT
+                from the
+                system itself
+            </system-out>
+        </testcase>
+
+    </testsuite>
+</testsuites>
