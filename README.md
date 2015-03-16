@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/jenkins_junit_builder.svg)](http://badge.fury.io/rb/jenkins_junit_builder)
+
 # Jenkins CI compatible Junit XML report builder
 
 When you have your own home brewed testing framework but still want to use [Jenkins CI](http://jenkins-ci.org/) with it's standard [JUnit plugin](https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin), you may find yourself searching for a valid and recent documentation on how to create such XML documents. It's hard. Harder for newbies who want to learn how to set up/use Jenkins and make it useful to their projects.
