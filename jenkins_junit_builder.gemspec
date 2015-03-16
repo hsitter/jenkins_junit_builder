@@ -1,7 +1,6 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jenkins_junit_builder/version'
+require 'pathname'
+require Pathname.new(__dir__) + 'lib/jenkins_junit_builder/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'jenkins_junit_builder'
