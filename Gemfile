@@ -7,6 +7,6 @@ gem 'nokogiri', '1.6.6.2'
 gem 'activesupport', '4.2.0'
 
 group :development do
-  gem 'minitest-reporters'
+  gem 'minitest-reporters', '1.0.11'
   gem 'pry'
 end
