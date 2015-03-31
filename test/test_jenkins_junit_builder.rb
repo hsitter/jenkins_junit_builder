@@ -1,5 +1,4 @@
-require 'pathname'
-require Pathname.new(__dir__) + 'minitest_helper'
+require_relative './minitest_helper'
 
 class TestJenkinsJunitBuilder < MiniTest::Test
   def test_that_it_has_a_version_number
@@ -23,10 +22,10 @@ TXT
   def test_system_message_return_value
     stack_trace = <<TXT
   Minitest::Skip: Skipped, no message given
-/home/ikon/src/rocksteady/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:39:in `test_building_new_report'
+/home/ikon/src/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:39:in `test_building_new_report'
 
   Minitest::Skip: Skipped, no message given
-/home/ikon/src/rocksteady/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:54:in `test_appending_to_existing_report'
+/home/ikon/src/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:54:in `test_appending_to_existing_report'
    Finished in 0.00272s
 4 tests, 2 assertions, 0 failures, 0 errors, 2 skips
 TXT

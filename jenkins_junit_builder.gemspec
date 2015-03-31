@@ -1,6 +1,5 @@
 # coding: utf-8
-require 'pathname'
-require Pathname.new(__dir__) + 'lib/jenkins_junit_builder/version'
+require_relative './lib/jenkins_junit_builder/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'jenkins_junit_builder'

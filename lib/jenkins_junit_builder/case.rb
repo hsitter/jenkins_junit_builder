@@ -1,5 +1,4 @@
-require 'pathname'
-require Pathname.new(__dir__) + 'system_message'
+require_relative './system_message'
 
 module JenkinsJunitBuilder
   class Case

@@ -1,8 +1,6 @@
 require 'active_support/core_ext/object/blank'
 require 'nokogiri'
-require 'pathname'
-require Pathname.new(__dir__) + 'file_not_found_exception'
-require 'pry'
+require_relative './file_not_found_exception'
 
 module JenkinsJunitBuilder
   class Suite
