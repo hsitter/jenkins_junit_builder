@@ -22,10 +22,10 @@ TXT
   def test_system_message_return_value
     stack_trace = <<TXT
   Minitest::Skip: Skipped, no message given
-/home/ikon/src/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:39:in `test_building_new_report'
+/home/ikon/src/rocksteady/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:39:in `test_building_new_report'
 
   Minitest::Skip: Skipped, no message given
-/home/ikon/src/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:54:in `test_appending_to_existing_report'
+/home/ikon/src/rocksteady/git/jenkins_junit_builder/test/test_jenkins_junit_builder.rb:54:in `test_appending_to_existing_report'
    Finished in 0.00272s
 4 tests, 2 assertions, 0 failures, 0 errors, 2 skips
 TXT
@@ -48,14 +48,15 @@ TXT
 
     t_failed                    = JenkinsJunitBuilder::Case.new
     t_failed.name               = 'My failing functionality'
-    t_failed.classname          = 'FirstTestSuite'
+    t_failed.classname          = 'SecondTestSuite'
     t_failed.result             = JenkinsJunitBuilder::Case::RESULT_FAILURE
     t_failed.message            = 'timeout reached'
     t_failed.system_out.message = 'some thing went wrong'
     t_failed.system_err.message = 'give me a stacktrace or something'
 
-    t_suite      = JenkinsJunitBuilder::Suite.new
-    t_suite.name = 'Testing some cases'
+    t_suite         = JenkinsJunitBuilder::Suite.new
+    t_suite.name    = 'Testing some cases'
+    t_suite.package = 'first-suite'
     t_suite.add_case t_passed
     t_suite.add_case t_failed
 
@@ -63,9 +64,9 @@ TXT
 
     expected = <<XML
 <testsuites>
-  <testsuite name="Testing some cases">
-    <testcase name="My first test case" time="65" classname="FirstTestSuite"/>
-    <testcase name="My failing functionality" classname="FirstTestSuite">
+  <testsuite name="Testing some cases" package="first-suite">
+    <testcase name="My first test case" time="65" classname="first-suite.FirstTestSuite"/>
+    <testcase name="My failing functionality" classname="first-suite.SecondTestSuite">
       <failure message="timeout reached"/>
       <system-out>some thing went wrong</system-out>
       <system-err>give me a stacktrace or something</system-err>

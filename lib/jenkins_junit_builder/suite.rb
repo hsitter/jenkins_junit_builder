@@ -5,7 +5,7 @@ require_relative './file_not_found_exception'
 module JenkinsJunitBuilder
   class Suite
 
-    attr_accessor :name, :report_path, :append_report
+    attr_accessor :name, :report_path, :append_report, :package
 
     def initialize
       @cases             = []
@@ -24,7 +24,7 @@ module JenkinsJunitBuilder
       # build cases
       builder = Nokogiri::XML::Builder.new do |xml|
         xml.testsuites {
-          testsuite        = xml.testsuite {
+          testsuite           = xml.testsuite {
             @cases.each do |tc|
               testcase             = xml.testcase {
                 if tc.result_has_message?
@@ -43,11 +43,21 @@ module JenkinsJunitBuilder
 
               testcase[:name]      = tc.name if tc.name.present?
               testcase[:time]      = tc.time if tc.time.present?
-              testcase[:classname] = tc.classname if tc.classname.present?
+
+              testcase[:classname] = package if package.present?
+              if tc.classname.present?
+                if testcase[:classname].present?
+                  testcase[:classname] = "#{testcase[:classname]}.#{tc.classname}"
+                else
+                  testcase[:classname] = tc.classname
+                end
+              end
+
             end
           }
 
-          testsuite[:name] = name if name.present?
+          testsuite[:name]    = name if name.present?
+          testsuite[:package] = package if package.present?
         }
       end
 

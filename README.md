@@ -58,8 +58,9 @@ t_failed.system_err.message = 'give me a stacktrace or something'
 
 Add those to the suite:
 ```ruby
-t_suite      = JenkinsJunitBuilder::Suite.new
-t_suite.name = 'Testing some cases'
+t_suite         = JenkinsJunitBuilder::Suite.new
+t_suite.name    = 'Testing some cases'
+t_suite.package = 'Mytest'
 t_suite.add_case t_passed
 t_suite.add_case t_failed
 ```
@@ -72,9 +73,9 @@ xml_report = t_suite.build_report
 Into this:
 ```xml
 <testsuites>
-  <testsuite name="Testing some cases">
-    <testcase name="My first test case" time="65" classname="FirstTestSuite"/>
-    <testcase name="My failing functionality" classname="FirstTestSuite">
+  <testsuite name="Testing some cases" package="Mytest">
+    <testcase name="My first test case" time="65" classname="Mytest.FirstTestSuite"/>
+    <testcase name="My failing functionality" classname="Mytest.FirstTestSuite">
       <failure message="timeout reached"/>
       <system-out>some thing went wrong</system-out>
       <system-err>give me a stacktrace or something</system-err>
@@ -87,6 +88,12 @@ Please refer to the tests and code for more guidance for the time being.
 
 ----------
 
+##Changelog
+
+**0.0.3**
+ - Changed require mechanism to be compatible with JRuby 1.7 (and MRI 1.9.3)
+ **0.0.2**
+ - Learned that rubygems have their runtime dependency list in the gemspec (A.K.A first working version)
 
 ## Contributing
 
@@ -95,3 +102,5 @@ Please refer to the tests and code for more guidance for the time being.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+> Written with [StackEdit](https://stackedit.io/).
