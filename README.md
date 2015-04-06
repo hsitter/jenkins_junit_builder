@@ -89,10 +89,20 @@ Please refer to the tests and code for more guidance for the time being.
 ----------
 
 ##Changelog
+**0.0.5**
 
+ - Still learning rubygem dependencies the hard way
+ 
+**0.0.4**
+
+ - Added support to _package_ attribute
+ 
 **0.0.3**
+
  - Changed require mechanism to be compatible with JRuby 1.7 (and MRI 1.9.3)
- **0.0.2**
+ 
+**0.0.2**
+
  - Learned that rubygems have their runtime dependency list in the gemspec (A.K.A first working version)
 
 ## Contributing
