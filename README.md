@@ -36,6 +36,12 @@ Since we are building our own testing system, I did something that is not soooo 
 
 ----------
 
+Require the lib:
+
+```ruby
+require 'jenkins_junit_builder'
+```
+
 Let's report a pass:
 ```ruby
 t_passed           = JenkinsJunitBuilder::Case.new
@@ -89,6 +95,10 @@ Please refer to the tests and code for more guidance for the time being.
 ----------
 
 ##Changelog
+**0.0.6**
+
+ - Simplified _require_
+
 **0.0.5**
 
  - Still learning rubygem dependencies the hard way
