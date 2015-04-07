@@ -34,8 +34,6 @@ Again, Jenkins looks like to work by this [XSD schema](https://svn.jenkins-ci.or
 
 Since we are building our own testing system, I did something that is not soooo magical as a DSL with raibows and [Unikitties](http://lego.wikia.com/wiki/Unikitty).
 
-----------
-
 Require the lib:
 
 ```ruby
@@ -91,6 +89,10 @@ Into this:
 ```
 
 Please refer to the tests and code for more guidance for the time being.
+
+##Heads up
+
+ - do not include a dot (.) in the testcase.name and testsuite.classname, only if you intentionally want extra level indentation within your test hierarchy 
 
 ----------
 
